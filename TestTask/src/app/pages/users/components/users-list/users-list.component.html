@@ -1,0 +1,25 @@
+<div class="users-list">
+  <table class="users-list__table">
+    <thead class="users-list__table-head">
+      <tr class="users-list__table-head-row">
+        <th class="users-list__table-head-cell">Username</th>
+        <th class="users-list__table-head-cell">First name</th>
+        <th class="users-list__table-head-cell">Last name</th>
+        <th class="users-list__table-head-cell">Email</th>
+        <th class="users-list__table-head-cell">Type</th>
+      </tr>
+    </thead>
+
+    <tbody class="users-list__table-body">
+      <tr *ngFor="let user of (users$ | async)" class="users-list__table-body-row">
+        <th class="users-list__table-body-cell">{{ user.username }}</th>
+        <th class="users-list__table-body-cell">{{ user.firstName }}</th>
+        <th class="users-list__table-body-cell">{{ user.lastName }}</th>
+        <th class="users-list__table-body-cell" [title]="user.email">{{ user.email }}</th>
+        <th class="users-list__table-body-cell">
+          {{ user.userType === UserTypeEnum.Admin ? 'Administrator' : 'Driver' }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

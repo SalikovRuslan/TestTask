@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "styles/colors";
+
+body {
+  background: $background;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  border-spacing: 0;
+}

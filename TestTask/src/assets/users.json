@@ -1,0 +1,162 @@
+[
+  {
+    "username": "mperry1992",
+    "first_name": "Matthew",
+    "last_name": "Perry",
+    "email": "matthew@mail.com",
+    "user_type": "Admin",
+    "password": "a1234567"
+  },
+  {
+    "username": "jdoe1985",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@mail.com",
+    "user_type": "Driver",
+    "password": "p1assword"
+  },
+  {
+    "username": "lsmith1978",
+    "first_name": "Linda",
+    "last_name": "Smith",
+    "email": "linda.smith@mail.com",
+    "user_type": "Admin",
+    "password": "s3curepwd"
+  },
+  {
+    "username": "bwilliams1990",
+    "first_name": "Brian",
+    "last_name": "Williams",
+    "email": "brian@mail.com",
+    "user_type": "Driver",
+    "password": "pa55w0rd"
+  },
+  {
+    "username": "asanchez1987",
+    "first_name": "Alice",
+    "last_name": "Sanchez",
+    "email": "alice.sanchez@mail.com",
+    "user_type": "Admin",
+    "password": "secure123"
+  },
+  {
+    "username": "mjohnson1995",
+    "first_name": "Michael",
+    "last_name": "Johnson",
+    "email": "michael@mail.com",
+    "user_type": "Driver",
+    "password": "pass1234"
+  },
+  {
+    "username": "rrodriguez1980",
+    "first_name": "Rebecca",
+    "last_name": "Rodriguez",
+    "email": "rebecca@mail.com",
+    "user_type": "Admin",
+    "password": "password1"
+  },
+  {
+    "username": "jmartinez1983",
+    "first_name": "Jennifer",
+    "last_name": "Martinez",
+    "email": "jennifer@mail.com",
+    "user_type": "Driver",
+    "password": "mysecure1"
+  },
+  {
+    "username": "dlee1991",
+    "first_name": "David",
+    "last_name": "Lee",
+    "email": "david@mail.com",
+    "user_type": "Admin",
+    "password": "a1b2c3d4"
+  },
+  {
+    "username": "mhall1982",
+    "first_name": "Mary",
+    "last_name": "Hall",
+    "email": "mary.hall@mail.com",
+    "user_type": "Driver",
+    "password": "p@ssw0rd"
+  },
+  {
+    "username": "krogers1984",
+    "first_name": "Kevin",
+    "last_name": "Rogers",
+    "email": "kevin@mail.com",
+    "user_type": "Admin",
+    "password": "k3v1n123"
+  },
+  {
+    "username": "ssmith1989",
+    "first_name": "Sarah",
+    "last_name": "Smith",
+    "email": "sarah@mail.com",
+    "user_type": "Driver",
+    "password": "sarah123"
+  },
+  {
+    "username": "twhite1986",
+    "first_name": "Thomas",
+    "last_name": "White",
+    "email": "thomas@mail.com",
+    "user_type": "Admin",
+    "password": "th0mas@pwd"
+  },
+  {
+    "username": "jjackson1981",
+    "first_name": "Jessica",
+    "last_name": "Jackson",
+    "email": "jessica@mail.com",
+    "user_type": "Driver",
+    "password": "jessi123"
+  },
+  {
+    "username": "gwilson1993",
+    "first_name": "George",
+    "last_name": "Wilson",
+    "email": "george@mail.com",
+    "user_type": "Admin",
+    "password": "g-wilson1"
+  },
+  {
+    "username": "csmith1988",
+    "first_name": "Christopher",
+    "last_name": "Smith",
+    "email": "chris@mail.com",
+    "user_type": "Driver",
+    "password": "csmith123"
+  },
+  {
+    "username": "abrown1980",
+    "first_name": "Amanda",
+    "last_name": "Brown",
+    "email": "amanda@mail.com",
+    "user_type": "Admin",
+    "password": "a.brown123"
+  },
+  {
+    "username": "rjohnson1994",
+    "first_name": "Robert",
+    "last_name": "Johnson",
+    "email": "robert@mail.com",
+    "user_type": "Driver",
+    "password": "rob12345"
+  },
+  {
+    "username": "pwilson1992",
+    "first_name": "Patricia",
+    "last_name": "Wilson",
+    "email": "patricia@mail.com",
+    "user_type": "Admin",
+    "password": "patwilson1"
+  },
+  {
+    "username": "mthomas1987",
+    "first_name": "Mark",
+    "last_name": "Thomas",
+    "email": "mark@mail.com",
+    "user_type": "Driver",
+    "password": "mark12345"
+  }
+]

@@ -1,0 +1,45 @@
+@import "~src/styles/colors";
+
+.users-list {
+  box-shadow: 0 0 30px #523F690D;
+  padding-bottom: 78px;
+  background-color: $white;
+
+  .users-list__table {
+    width: 100%;
+    font-size: 13px;
+    line-height: 16px;
+    table-layout: fixed;
+
+
+    .users-list__table-head {
+      .users-list__table-head-row {
+        text-transform: uppercase;
+        text-align: left;
+        color: $table-text-gray;
+      }
+
+      .users-list__table-head-cell {
+        padding: 26px 26px 16px 26px;
+        font-weight: bold;
+      }
+    }
+
+    .users-list__table-body {
+      .users-list__table-body-row {
+        background-color: $table-gray;
+        text-align: left;
+      }
+
+      .users-list__table-body-cell {
+        color: $table-text-gray-dark;
+        padding: 22px 26px 21px 26px;
+        border-bottom: 2px solid $white;
+        font-weight: 300;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}
