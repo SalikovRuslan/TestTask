@@ -1,8 +1,15 @@
 .users-page {
   display: flex;
 
-  .users-page__list {
+  .users-page__users-container {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 70%;
     margin-right: 25px;
+  }
+
+  .users-page__button {
+    align-self: flex-end;
+    margin-bottom: 16px;
   }
 }

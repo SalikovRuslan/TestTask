@@ -1,0 +1,9 @@
+<button
+  class="ui-button"
+  [ngClass]="{
+    'ui-button--secondary': color === 'secondary'
+  }"
+  [disabled]="isDisabled"
+>
+  <ng-content></ng-content>
+</button>

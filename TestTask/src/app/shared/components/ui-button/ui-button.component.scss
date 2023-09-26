@@ -1,0 +1,25 @@
+@import "~src/styles/colors";
+
+.ui-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  padding: 16px;
+  background: $button-primary 0 0 no-repeat padding-box;
+  box-shadow: 0 5px 8px #2E8FF029;
+  color: $white;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 17px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  &.ui-button--secondary {
+    background: $button-secondary 0 0 no-repeat padding-box;
+    padding: 12px 28px;
+  }
+}

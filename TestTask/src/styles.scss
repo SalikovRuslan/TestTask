@@ -4,6 +4,14 @@ body {
   background: $background;
 }
 
+button {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  border: none;
+}
+
 table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
