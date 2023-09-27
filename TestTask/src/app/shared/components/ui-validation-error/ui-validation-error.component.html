@@ -1,21 +1,21 @@
 <div class="ui-validation-error">
   <ng-container *ngIf="ngControl?.errors">
     <div class="ui-validation-error__message">
-      <ng-container *ngIf="ngControl?.hasError('email')">
+      <span *ngIf="ngControl?.hasError('email')">
         Invalid email format.
-      </ng-container>
-      <ng-container *ngIf="ngControl?.hasError('required')">
+      </span>
+      <span *ngIf="ngControl?.hasError('required')">
         This field is required.
-      </ng-container>
-      <ng-container *ngIf="ngControl?.hasError('minlength')">
+      </span>
+      <span *ngIf="ngControl?.hasError('minlength')">
         Password must be at least {{ ngControl.errors ? ngControl.errors['minlength'].requiredLength : '' }} characters long.
-      </ng-container>
-      <ng-container *ngIf="ngControl?.hasError('passwordStrength')">
+      </span>
+      <span *ngIf="ngControl?.hasError('passwordStrength')">
         At least one number and one letter
-      </ng-container>
-      <ng-container *ngIf="ngControl?.hasError('confirmPassword')">
+      </span>
+      <span *ngIf="ngControl?.hasError('confirmPassword')">
         Password doesn't match
-      </ng-container>
+      </span>
     </div>
   </ng-container>
 </div>

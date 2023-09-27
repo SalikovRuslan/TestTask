@@ -37,7 +37,6 @@ export class UiSelectComponent implements ControlValueAccessor, OnInit {
   }
 
   set value(v: any) {
-    console.log(v)
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);

@@ -3,10 +3,20 @@
 .ui-input {
   width: 100%;
 
+  .ui-input__container {
+    position: relative;
+  }
+
   .ui-input__label {
     color: $label-text;
     font-size: 13px;
     line-height: 16px;
+  }
+
+  .ui-input__placeholder-icon {
+    position: absolute;
+    top: 13px;
+    left: 16px;
   }
 
   .ui-input__input {

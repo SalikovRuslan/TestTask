@@ -12,17 +12,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/users/users.module').then(m => m.UsersModule),
   },
   {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: '404',
-  },
-  {
     path: '403',
     loadComponent: () => import('./pages/page403/page403.component').then(m => m.Page403Component),
   },
   {
     path: '404',
     loadComponent: () => import('./pages/page404/page404.component').then(m => m.Page404Component),
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: '404',
   },
 ];
 

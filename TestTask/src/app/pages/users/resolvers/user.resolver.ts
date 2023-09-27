@@ -14,7 +14,7 @@ export const userResolver: ResolveFn<Observable<any>> = (route, state) => {
   return usersService.getUser(username)
       .pipe(
           catchError(() => {
-            snackbarService.warning('This user doesnt exist');
+            snackbarService.warning('This user doesn\'t exist');
             router.navigate(['/404']).then();
             return EMPTY;
           })

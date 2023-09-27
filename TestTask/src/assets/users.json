@@ -118,45 +118,5 @@
     "email": "george@mail.com",
     "user_type": "Admin",
     "password": "g-wilson1"
-  },
-  {
-    "username": "csmith1988",
-    "first_name": "Christopher",
-    "last_name": "Smith",
-    "email": "chris@mail.com",
-    "user_type": "Driver",
-    "password": "csmith123"
-  },
-  {
-    "username": "abrown1980",
-    "first_name": "Amanda",
-    "last_name": "Brown",
-    "email": "amanda@mail.com",
-    "user_type": "Admin",
-    "password": "a.brown123"
-  },
-  {
-    "username": "rjohnson1994",
-    "first_name": "Robert",
-    "last_name": "Johnson",
-    "email": "robert@mail.com",
-    "user_type": "Driver",
-    "password": "rob12345"
-  },
-  {
-    "username": "pwilson1992",
-    "first_name": "Patricia",
-    "last_name": "Wilson",
-    "email": "patricia@mail.com",
-    "user_type": "Admin",
-    "password": "patwilson1"
-  },
-  {
-    "username": "mthomas1987",
-    "first_name": "Mark",
-    "last_name": "Thomas",
-    "email": "mark@mail.com",
-    "user_type": "Driver",
-    "password": "mark12345"
   }
 ]

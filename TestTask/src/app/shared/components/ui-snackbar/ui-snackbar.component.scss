@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 10px 15px #4CAF505C;
   width: 280px;
   height: 56px;
   border-radius: 6px;
@@ -16,11 +15,13 @@
   &.ui-snackbar--success {
     background-color: #5cb85c; /* Green for success */
     color: #fff;
+    box-shadow: 0 10px 15px #4CAF505C;
   }
 
   &.ui-snackbar--warning {
     background-color: #d9534f; /* Red for warning */
     color: #fff;
+    box-shadow: 0 10px 15px #EF7DA05C;
   }
 
   &.ui-snackbar--top-left {

@@ -16,6 +16,7 @@ import { IUserResponse } from './pages/users/interfaces/user-response.interface'
 @Injectable()
 export class FakeBackendHttpInterceptor implements HttpInterceptor {
   private usersJsonPath = "assets/users.json";
+  private isOnceLoaded = false;
 
   private users: IUserResponse[] = [];
   constructor(private http: HttpClient) {}
@@ -32,10 +33,11 @@ export class FakeBackendHttpInterceptor implements HttpInterceptor {
       req = req.clone({
         url: this.usersJsonPath,
       });
-      return this.users.length
+      return this.isOnceLoaded
           ? of(new HttpResponse({ status: 200, body: this.users }))
           : this.http.get<any[]>(req.url).pipe(
               tap(users => this.users = users),
+              tap(users => this.isOnceLoaded = true),
               map(() => new HttpResponse({ status: 200, body: this.users }))
           );
     }

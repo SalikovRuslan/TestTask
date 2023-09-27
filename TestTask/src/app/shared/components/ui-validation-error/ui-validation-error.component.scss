@@ -5,6 +5,8 @@
   line-height: 16px;
 
   .ui-validation-error__message {
+    display: flex;
+    flex-direction: column;
     color: $input-error-color;
   }
 }
