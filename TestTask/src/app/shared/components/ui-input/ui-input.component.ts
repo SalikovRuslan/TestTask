@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormsModule, NgControl } from '@angular/forms';
 import { CommonModule, NgIf } from '@angular/common';
 
@@ -10,7 +10,6 @@ import { UiValidationErrorComponent } from '@shared/components/ui-validation-err
   styleUrls: ['./ui-input.component.scss'],
   standalone: true,
   imports: [CommonModule, FormsModule, UiValidationErrorComponent, NgIf],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiInputComponent implements ControlValueAccessor, OnInit {
   @Input() label: string = '';
@@ -63,6 +62,10 @@ export class UiInputComponent implements ControlValueAccessor, OnInit {
   private onTouchedCallback() {}
 
   hasError(): boolean {
+    if (this.name === 'repeatedPassword') {
+      // console.log(this.formControl)
+      console.log((this.formControl.invalid && (this.formControl.dirty || this.formControl.touched)))
+    }
     return this.formControl
       ? this.formControl.invalid && (this.formControl.dirty || this.formControl.touched)
       : false;

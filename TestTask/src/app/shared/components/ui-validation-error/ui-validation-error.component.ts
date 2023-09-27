@@ -8,7 +8,6 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrls: ['./ui-validation-error.component.scss'],
   standalone: true,
   imports: [CommonModule, NgIf],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UiValidationErrorComponent {
   @Input() ngControl: AbstractControl;

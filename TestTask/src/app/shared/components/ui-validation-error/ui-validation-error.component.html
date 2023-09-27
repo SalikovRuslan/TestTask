@@ -4,11 +4,17 @@
       <ng-container *ngIf="ngControl?.hasError('email')">
         Invalid email format.
       </ng-container>
-      <ng-container *ngIf="ngControl?.hasError('password')">
-        Password must be at least 8 characters long.
-      </ng-container>
       <ng-container *ngIf="ngControl?.hasError('required')">
         This field is required.
+      </ng-container>
+      <ng-container *ngIf="ngControl?.hasError('minlength')">
+        Password must be at least {{ ngControl.errors ? ngControl.errors['minlength'].requiredLength : '' }} characters long.
+      </ng-container>
+      <ng-container *ngIf="ngControl?.hasError('passwordStrength')">
+        At least one number and one letter
+      </ng-container>
+      <ng-container *ngIf="ngControl?.hasError('confirmPassword')">
+        Password doesn't match
       </ng-container>
     </div>
   </ng-container>

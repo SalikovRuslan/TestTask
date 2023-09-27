@@ -1,15 +1,19 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, OnInit } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { catchError, tap } from 'rxjs';
 
+import { createPasswordStrengthValidator } from '@shared/validators/create-password-strength.validator';
+import { confirmPasswordValidator } from '@shared/validators/confirm-password.validator';
+
 import { IUser } from '../../interfaces/user.interface';
 import { UserTypeEnum } from '../../enums/user-type.enum';
 import { IUserForm } from '../../interfaces/user-form.interface';
 import { UsersService } from '../../services/users.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 
 @Component({
   selector: 'app-user-form',
@@ -25,6 +29,7 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private destroyRef: DestroyRef,
+    private cdr: ChangeDetectorRef,
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
@@ -51,9 +56,25 @@ export class UserFormComponent implements OnInit {
         this.isCreation = false;
       }
     })
+
+    this.formGroup.get('password')?.valueChanges
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+      )
+      .subscribe((value) => {
+        if (value) {
+          this.formGroup.get('repeatedPassword')?.markAsTouched();
+          this.formGroup.get('repeatedPassword')?.markAsDirty();
+          this.formGroup.get('repeatedPassword')?.updateValueAndValidity();
+        }
+      })
   }
 
   public onSave(): void {
+    if (!this.formGroup.valid) {
+      return;
+    }
+
     (this.isCreation
         ? this.usersService.createUser(this.formGroup.value as IUser)
         : this.usersService.updateUser(this.formGroup.value as IUser, this.initialUserName)
@@ -99,6 +120,7 @@ export class UserFormComponent implements OnInit {
       )
       .subscribe()
 
+    this.formGroup.get('password')
   }
 
   private createUserForm(): void {
@@ -106,10 +128,14 @@ export class UserFormComponent implements OnInit {
       username: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.email]),
       userType: new FormControl(UserTypeEnum.Admin, [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      repeatedPassword: new FormControl('', [Validators.required]),
+      password: new FormControl('',
+        [Validators.minLength(8), createPasswordStrengthValidator()]
+      ),
+      repeatedPassword: new FormControl('',
+        [Validators.required, confirmPasswordValidator('password')]
+      ),
     });
   }
 
