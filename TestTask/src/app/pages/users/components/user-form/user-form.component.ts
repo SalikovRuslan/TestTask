@@ -123,7 +123,7 @@ export class UserFormComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef),
         tap(() => {
           this.snackbarService.success('Deleted');
-          this.router.navigate(['/forms']).then();
+          this.router.navigate(['/users']).then();
           this.usersService.onReloadSubject$.next();
         })
       )
