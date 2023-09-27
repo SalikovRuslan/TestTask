@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormsModule, NgControl } from '@angular/forms';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule, NgIf, NgOptimizedImage } from '@angular/common';
 
 import { UiValidationErrorComponent } from '@shared/components/ui-validation-error/ui-validation-error.component';
 
@@ -14,7 +14,7 @@ export interface ISelectValue {
   templateUrl: './ui-select.component.html',
   styleUrls: ['./ui-select.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, UiValidationErrorComponent, NgIf],
+  imports: [CommonModule, FormsModule, UiValidationErrorComponent, NgIf, NgOptimizedImage],
 })
 export class UiSelectComponent implements ControlValueAccessor, OnInit {
   @Input() label: string = '';

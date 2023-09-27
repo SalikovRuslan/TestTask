@@ -31,3 +31,9 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 textarea:focus, input:focus{
   outline: none;
 }
+
+select {
+  -moz-appearance:none; /* Firefox */
+  -webkit-appearance:none; /* Safari and Chrome */
+  appearance:none;
+}
