@@ -1,0 +1,32 @@
+@import "src/styles/colors";
+
+.ui-input {
+  width: 100%;
+
+  .ui-input__label {
+    color: $label-text;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .ui-input__input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 3px;
+    border: 1px solid $input-color;
+    border-radius: 6px;
+    background: $input-color 0 0 no-repeat padding-box;
+    color: $input-text;
+    font-size: 13px;
+    line-height: 16px;
+
+    &.ui-input__input--error {
+      border-color: $input-error-color;
+    }
+  }
+
+  .ui-input__error-container {
+    height: 16px;
+    overflow: hidden;
+  }
+}

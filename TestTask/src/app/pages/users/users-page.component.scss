@@ -2,14 +2,21 @@
   display: flex;
 
   .users-page__users-container {
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
-    flex: 0 0 70%;
     margin-right: 25px;
   }
 
   .users-page__button {
     align-self: flex-end;
     margin-bottom: 16px;
+  }
+
+  .users-page__outlet {
+    margin-top: 65px;
+    width: 100%;
+    min-width: 400px;
+    max-width: 580px;
   }
 }

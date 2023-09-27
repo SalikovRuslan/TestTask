@@ -1,0 +1,10 @@
+@import "src/styles/colors";
+
+.ui-validation-error {
+  font-size: 13px;
+  line-height: 16px;
+
+  .ui-validation-error__message {
+    color: $input-error-color;
+  }
+}

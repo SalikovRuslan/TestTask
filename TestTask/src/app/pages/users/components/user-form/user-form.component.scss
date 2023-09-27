@@ -1,0 +1,40 @@
+@import "src/styles/colors";
+
+.user-form {
+  padding: 31px 26px;
+  box-shadow: 0 0 30px #523F690D;
+  background-color: $white;
+
+  &.user-form--updating {
+    .user-form__button-container {
+      justify-content: space-between;
+    }
+  }
+
+  .user-form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    .user-form__header-title {
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 600;
+    }
+
+    .user-form__header-icon {
+      opacity: 0.8;
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+  }
+
+  .user-form__button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

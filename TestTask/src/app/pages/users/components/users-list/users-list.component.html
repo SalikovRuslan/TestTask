@@ -11,7 +11,13 @@
     </thead>
 
     <tbody class="users-list__table-body">
-      <tr *ngFor="let user of (users$ | async)" class="users-list__table-body-row">
+      <tr
+        *ngFor="let user of (users$ | async)"
+        class="users-list__table-body-row"
+        [ngClass]="{ 'users-list__table-body-row--selected': selectedUsername === user.username }"
+        [routerLink]="'form/' + user.username"
+        (click)="selectedUsername = user.username"
+      >
         <th class="users-list__table-body-cell">{{ user.username }}</th>
         <th class="users-list__table-body-cell">{{ user.firstName }}</th>
         <th class="users-list__table-body-cell">{{ user.lastName }}</th>

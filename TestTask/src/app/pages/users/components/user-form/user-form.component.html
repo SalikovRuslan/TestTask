@@ -1,0 +1,28 @@
+<div class="user-form" [ngClass]="{ 'user-form--updating':!isCreation }">
+  <div class="user-form__header">
+    <span class="user-form__header-title">{{ isCreation ? 'Create new user' : fullName }}</span>
+
+    <a routerLink="/users">
+      <img class="user-form__header-icon" ngSrc="assets/icons/close.svg" height="24" width="24" alt="close">
+    </a>
+  </div>
+
+  <div>
+    {{ formGroup.value | json }}
+    <form [formGroup]="formGroup">
+      <app-ui-input formControlName="username" label="Username*" name="username"></app-ui-input>
+      <app-ui-input formControlName="firstName" label="First name*" name="firstName"></app-ui-input>
+      <app-ui-input formControlName="lastName" label="Last name*" name="lastName"></app-ui-input>
+      <app-ui-input formControlName="email" label="Email*" name="email"></app-ui-input>
+      <app-ui-input formControlName="userType" label="Type*" name="userType"></app-ui-input>
+      <app-ui-input formControlName="password" label="Password*" name="password" type="password"></app-ui-input>
+      <app-ui-input formControlName="repeatedPassword" label="Repeat password*" name="repeatedPassword" type="password"></app-ui-input>
+    </form>
+  </div>
+
+  <div class="user-form__button-container">
+    <app-ui-button *ngIf="!isCreation" color="secondary" (click)="onDelete()">Delete</app-ui-button>
+    <app-ui-button (click)="onSave()">Create</app-ui-button>
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+<div class="ui-input">
+  <label *ngIf="label" class="ui-input__label" [for]="name">{{ label }}</label>
+  <input
+    [id]="name"
+    [type]="type"
+    autocomplete="off"
+    class="ui-input__input"
+    [ngClass]="{ 'ui-input__input--error': hasError() }"
+    [placeholder]="placeholder"
+    [(ngModel)]="value"
+    (blur)="onBlur()"
+  />
+  <div class="ui-input__error-container">
+    <ng-container *ngIf="hasError()">
+      <app-ui-validation-error [ngControl]="formControl"></app-ui-validation-error>
+    </ng-container>
+  </div>
+</div>

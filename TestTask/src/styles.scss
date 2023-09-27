@@ -1,5 +1,10 @@
 @import "styles/colors";
 
+
+*{
+ box-sizing: border-box;
+}
+
 body {
   background: $background;
 }
@@ -20,4 +25,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   font-size: 100%;
   vertical-align: baseline;
   border-spacing: 0;
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }

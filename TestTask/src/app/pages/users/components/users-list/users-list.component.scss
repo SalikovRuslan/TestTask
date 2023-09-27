@@ -29,6 +29,15 @@
       .users-list__table-body-row {
         background-color: $table-gray;
         text-align: left;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $table-gray-dark;
+        }
+
+        &.users-list__table-body-row--selected {
+          background-color: $table-gray-dark;
+        }
       }
 
       .users-list__table-body-cell {

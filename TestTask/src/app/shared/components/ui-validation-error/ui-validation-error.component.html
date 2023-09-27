@@ -1,0 +1,15 @@
+<div class="ui-validation-error">
+  <ng-container *ngIf="ngControl?.errors">
+    <div class="ui-validation-error__message">
+      <ng-container *ngIf="ngControl?.hasError('email')">
+        Invalid email format.
+      </ng-container>
+      <ng-container *ngIf="ngControl?.hasError('password')">
+        Password must be at least 8 characters long.
+      </ng-container>
+      <ng-container *ngIf="ngControl?.hasError('required')">
+        This field is required.
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
