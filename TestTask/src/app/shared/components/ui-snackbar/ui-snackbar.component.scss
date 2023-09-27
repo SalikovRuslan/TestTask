@@ -1,0 +1,44 @@
+@import "src/styles/colors";
+
+.ui-snackbar {
+  position: fixed;
+  padding: 22px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 15px #4CAF505C;
+  width: 280px;
+  height: 56px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 16px;
+
+  &.ui-snackbar--success {
+    background-color: #5cb85c; /* Green for success */
+    color: #fff;
+  }
+
+  &.ui-snackbar--warning {
+    background-color: #d9534f; /* Red for warning */
+    color: #fff;
+  }
+
+  &.ui-snackbar--top-left {
+    top: 56px;
+    left: 46px;
+  }
+
+  &.ui-snackbar--top-right {
+    top: 56px;
+    right: 46px;
+  }
+
+  .ui-snackbar-content {
+    flex-grow: 1;
+  }
+}
+
+
+
+
+

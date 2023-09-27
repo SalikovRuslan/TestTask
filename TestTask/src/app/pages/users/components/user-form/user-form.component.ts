@@ -8,12 +8,13 @@ import { catchError, tap } from 'rxjs';
 
 import { createPasswordStrengthValidator } from '@shared/validators/create-password-strength.validator';
 import { confirmPasswordValidator } from '@shared/validators/confirm-password.validator';
+import { ISelectValue } from '@shared/components/ui-select/ui-select.component';
+import { SnackbarService } from '@shared/services/snackbar.service';
 
 import { IUser } from '../../interfaces/user.interface';
 import { UserTypeEnum } from '../../enums/user-type.enum';
 import { IUserForm } from '../../interfaces/user-form.interface';
 import { UsersService } from '../../services/users.service';
-import { ISelectValue } from '@shared/components/ui-select/ui-select.component';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class UserFormComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private usersService: UsersService,
+    private snackbarService: SnackbarService,
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class UserFormComponent implements OnInit {
       )
       .subscribe(() => {
       const user: IUser = this.route.snapshot.data['user'];
+
       if (user) {
         this.initialUserName = user.username;
         this.formGroup.patchValue({
@@ -58,8 +61,9 @@ export class UserFormComponent implements OnInit {
           repeatedPassword: user.password,
         });
         this.formGroup.updateValueAndValidity();
-        this.updateHeaderFullName(user.firstName, user.lastName);
+
         this.isCreation = false;
+        this.updateHeaderFullName(user.firstName, user.lastName);
         this.cdr.markForCheck();
       }
     })
@@ -91,8 +95,7 @@ export class UserFormComponent implements OnInit {
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         tap(() => {
-          // show tooltip success
-          console.log('success');
+          this.snackbarService.success(this.isCreation ? 'Created' : 'Updated');
 
           const formValue = this.formGroup.value;
           this.initialUserName = formValue.username as string;
@@ -104,10 +107,8 @@ export class UserFormComponent implements OnInit {
         }),
         catchError((error: HttpErrorResponse) => {
           if (error.error === 'Already exist') {
-            // show tooltip Already exist
-            console.log(error.error)
+            this.snackbarService.warning('Already exist');
           } else {
-            // show tooltip backend error
             console.log(error.error)
           }
           throw error;
@@ -121,8 +122,7 @@ export class UserFormComponent implements OnInit {
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         tap(() => {
-          // show tooltip success deleting
-          console.log('success deleting');
+          this.snackbarService.success('Deleted');
           this.router.navigate(['/forms']).then();
           this.usersService.onReloadSubject$.next();
         })

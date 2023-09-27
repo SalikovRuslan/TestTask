@@ -1,0 +1,12 @@
+<div
+  class="ui-snackbar"
+  [ngClass]="{
+    'ui-snackbar--success': config.type === 'success',
+    'ui-snackbar--warning': config.type === 'warning',
+    'ui-snackbar--top-left': config.position === 'top-left',
+     'ui-snackbar--top-right': config.position === 'top-right'
+    }"
+  (click)="closeSnackbar()"
+>
+  <span class="ui-snackbar-content">{{ config.content }}</span>
+</div>

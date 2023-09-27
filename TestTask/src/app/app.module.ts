@@ -8,7 +8,7 @@ import { fakeBackendProvider } from './fakeusersbackend';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
