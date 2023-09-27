@@ -1,0 +1,17 @@
+<div class="ui-select">
+  <label *ngIf="label" class="ui-select__label" [for]="name">{{ label }}</label>
+  <select
+    [id]="name"
+    [name]="name" class="ui-select__select"
+    [ngClass]="{ 'ui-input__select--error': hasError() }"
+    [(ngModel)]="value"
+    (blur)="onBlur()"
+  >
+    <option *ngFor="let item of values" [value]="item.value" [ngValue]="item.value">{{ item.title }}</option>
+  </select>
+  <div class="ui-select__error-container">
+    <ng-container *ngIf="hasError()">
+      <app-ui-validation-error [ngControl]="formControl"></app-ui-validation-error>
+    </ng-container>
+  </div>
+</div>

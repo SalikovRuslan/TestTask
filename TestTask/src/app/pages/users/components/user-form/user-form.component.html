@@ -14,7 +14,7 @@
       <app-ui-input formControlName="firstName" label="First name*" name="firstName"></app-ui-input>
       <app-ui-input formControlName="lastName" label="Last name*" name="lastName"></app-ui-input>
       <app-ui-input formControlName="email" label="Email*" name="email"></app-ui-input>
-      <app-ui-input formControlName="userType" label="Type*" name="userType"></app-ui-input>
+      <app-ui-select formControlName="userType" label="Type*" name="userType" [values]="selectValues"></app-ui-select>
       <app-ui-input formControlName="password" label="Password*" name="password" type="password"></app-ui-input>
       <app-ui-input formControlName="repeatedPassword" label="Repeat password*" name="repeatedPassword" type="password"></app-ui-input>
     </form>

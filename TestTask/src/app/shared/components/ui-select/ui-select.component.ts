@@ -4,18 +4,22 @@ import { CommonModule, NgIf } from '@angular/common';
 
 import { UiValidationErrorComponent } from '@shared/components/ui-validation-error/ui-validation-error.component';
 
+export interface ISelectValue {
+  value: any;
+  title: string;
+}
+
 @Component({
-  selector: 'app-ui-input',
-  templateUrl: './ui-input.component.html',
-  styleUrls: ['./ui-input.component.scss'],
+  selector: 'app-ui-select',
+  templateUrl: './ui-select.component.html',
+  styleUrls: ['./ui-select.component.scss'],
   standalone: true,
   imports: [CommonModule, FormsModule, UiValidationErrorComponent, NgIf],
 })
-export class UiInputComponent implements ControlValueAccessor, OnInit {
+export class UiSelectComponent implements ControlValueAccessor, OnInit {
   @Input() label: string = '';
   @Input() name: string = '';
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
+  @Input() values: ISelectValue[];
 
   public formControl: AbstractControl;
 
@@ -33,6 +37,7 @@ export class UiInputComponent implements ControlValueAccessor, OnInit {
   }
 
   set value(v: any) {
+    console.log(v)
     if (v !== this.innerValue) {
       this.innerValue = v;
       this.onChangeCallback(v);

@@ -13,6 +13,7 @@ import { IUser } from '../../interfaces/user.interface';
 import { UserTypeEnum } from '../../enums/user-type.enum';
 import { IUserForm } from '../../interfaces/user-form.interface';
 import { UsersService } from '../../services/users.service';
+import { ISelectValue } from '@shared/components/ui-select/ui-select.component';
 
 
 @Component({
@@ -25,6 +26,11 @@ export class UserFormComponent implements OnInit {
   public formGroup: FormGroup<IUserForm>;
   public isCreation = true;
   public fullName = '';
+  public selectValues: ISelectValue[] = [
+    { value: UserTypeEnum.Admin, title: 'Administrator' },
+    { value: UserTypeEnum.Driver, title: 'Driver' },
+  ];
+
   private initialUserName: string;
 
   constructor(
@@ -54,6 +60,7 @@ export class UserFormComponent implements OnInit {
         this.formGroup.updateValueAndValidity();
         this.updateHeaderFullName(user.firstName, user.lastName);
         this.isCreation = false;
+        this.cdr.markForCheck();
       }
     })
 
@@ -62,16 +69,18 @@ export class UserFormComponent implements OnInit {
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe((value) => {
-        if (value) {
-          this.formGroup.get('repeatedPassword')?.markAsTouched();
-          this.formGroup.get('repeatedPassword')?.markAsDirty();
-          this.formGroup.get('repeatedPassword')?.updateValueAndValidity();
+        const repeatedPasswordControl = this.formGroup.get('repeatedPassword');
+        if (value && repeatedPasswordControl?.value) {
+          repeatedPasswordControl?.markAsTouched();
+          repeatedPasswordControl?.markAsDirty();
+          repeatedPasswordControl?.updateValueAndValidity();
         }
       })
   }
 
   public onSave(): void {
     if (!this.formGroup.valid) {
+      this.formGroup.markAllAsTouched();
       return;
     }
 
@@ -128,7 +137,7 @@ export class UserFormComponent implements OnInit {
       username: new FormControl('', [Validators.required]),
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       userType: new FormControl(UserTypeEnum.Admin, [Validators.required]),
       password: new FormControl('',
         [Validators.minLength(8), createPasswordStrengthValidator()]
