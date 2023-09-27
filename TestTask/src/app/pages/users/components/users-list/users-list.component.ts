@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { EMPTY, Observable, startWith, switchMap, tap } from 'rxjs';
 
 import { IUserList } from '../../interfaces/user-list.interface';
@@ -8,7 +8,8 @@ import { UserTypeEnum } from '../../enums/user-type.enum';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  styleUrls: ['./users-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent implements OnInit {
   public users$: Observable<IUserList[]> = new Observable();
