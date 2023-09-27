@@ -128,8 +128,6 @@ export class UserFormComponent implements OnInit {
         })
       )
       .subscribe()
-
-    this.formGroup.get('password')
   }
 
   private createUserForm(): void {
