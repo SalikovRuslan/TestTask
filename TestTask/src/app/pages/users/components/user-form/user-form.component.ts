@@ -107,7 +107,7 @@ export class UserFormComponent implements OnInit {
         }),
         catchError((error: HttpErrorResponse) => {
           if (error.error === 'Already exist') {
-            this.snackbarService.warning('Already exist');
+            this.snackbarService.warning('Username must be unique');
           } else {
             console.log(error.error)
           }
